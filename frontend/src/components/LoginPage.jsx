@@ -55,9 +55,7 @@ export const LoginPage = ({ onNavigate }) => {
         
         {/* Brand Logo Header */}
         <div className="flex items-center gap-3 z-10 select-none">
-          <div className="w-11 h-11 bg-brand-gold text-[#022c22] rounded-lg flex items-center justify-center shadow-xs">
-            <GraduationCap className="w-6 h-6 text-[#022c22]" />
-          </div>
+          <img src="/favicon.svg" alt="Placera Logo" className="w-11 h-11 object-contain" />
           <div>
             <span className="font-serif text-lg font-bold text-white block leading-none">Placera</span>
             <span className="text-[7.5px] uppercase tracking-widest font-black text-brand-cream/60 block mt-1">Placement Portal</span>

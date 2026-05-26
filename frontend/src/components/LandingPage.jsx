@@ -42,9 +42,7 @@ export const LandingPage = ({ onNavigate }) => {
       {/* 1. Header Navigation */}
       <header className="border-b border-border-low bg-brand-cream/80 backdrop-blur-md py-4 px-6 md:px-12 flex items-center justify-between sticky top-0 z-50 transition-all duration-300">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 bg-[#022c22] text-brand-cream rounded-sm flex items-center justify-center font-bold text-lg select-none">
-            <GraduationCap className="w-6 h-6 text-brand-cream" />
-          </div>
+          <img src="/favicon.svg" alt="Placera Logo" className="w-10 h-10 select-none object-contain" />
           <div>
             <span className="font-serif text-lg font-bold tracking-tight block leading-none">Placera</span>
             <span className="text-[7.5px] uppercase tracking-widest font-black text-brand-green/60 block mt-1">Placement Portal</span>
@@ -543,7 +541,7 @@ export const LandingPage = ({ onNavigate }) => {
       {/* 7. Footer */}
       <footer className="py-8 px-6 md:px-12 bg-brand-cream flex flex-col sm:flex-row items-center justify-between text-xs text-text-secondary font-bold">
         <div className="flex items-center gap-2">
-          <GraduationCap className="w-4.5 h-4.5 text-[#022c22]" />
+          <img src="/favicon.svg" alt="Placera Logo" className="w-5.5 h-5.5 object-contain select-none" />
           <span>Placera · Smart Internship & Placement Portal</span>
         </div>
         <div className="mt-3 sm:mt-0 font-medium text-brand-green/60">

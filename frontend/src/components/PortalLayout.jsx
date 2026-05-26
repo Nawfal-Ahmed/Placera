@@ -58,9 +58,7 @@ export const PortalLayout = ({ children, activeTab, onTabChange, menuItems, sear
           {/* Logo & Header */}
           <div className="p-6 border-b border-white/5 flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-brand-gold flex items-center justify-center shrink-0 shadow-sm">
-                <GraduationCap className="w-6 h-6 text-[#022c22] stroke-[2] fill-current" />
-              </div>
+              <img src="/favicon.svg" alt="Placera Logo" className="w-10 h-10 object-contain" />
               <div className="flex flex-col">
                 <span className="editorial-heading font-serif text-xl font-bold tracking-tight text-white">Placera</span>
                 <span className="text-[9px] text-white/50 uppercase tracking-widest font-semibold -mt-0.5">
