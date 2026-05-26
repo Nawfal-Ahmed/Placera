@@ -2,7 +2,7 @@
   "rewrites": [
     {
       "source": "/api/:path*",
-      "destination": "https://placera-backend.onrender.com/api/:path*"
+      "destination": "https://placera-4u6n.onrender.com/api/:path*"
     },
     {
       "source": "/(.*)",
