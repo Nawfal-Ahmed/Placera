@@ -7,7 +7,7 @@ A unified, real-time placement management system designed to connect students, r
 ## 🚀 Deployed Project Links
 
 * **Backend API (Render):** [https://placera-4u6n.onrender.com](https://placera-4u6n.onrender.com)
-* **Frontend Portal:** [http://localhost:5173/](http://localhost:5173/) *(Local Dev Server)* / [https://placera-frontend.vercel.app](https://placera-frontend.vercel.app) *(Vercel Production)*
+* **Frontend Portal (Vercel):** [https://placera-17zu1s430-nawfalahmed204-8990s-projects.vercel.app/](https://placera-17zu1s430-nawfalahmed204-8990s-projects.vercel.app/)
 
 ---
 
