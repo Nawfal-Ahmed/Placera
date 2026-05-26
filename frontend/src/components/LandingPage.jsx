@@ -1,17 +1,17 @@
 import React from 'react';
-import { 
-  GraduationCap, 
-  Briefcase, 
-  FileText, 
-  Calendar, 
-  CheckCircle2, 
-  ArrowRight, 
-  Building, 
-  ShieldCheck, 
-  UserCheck, 
-  Bell, 
-  BarChart3, 
-  ArrowUpRight 
+import {
+  GraduationCap,
+  Briefcase,
+  FileText,
+  Calendar,
+  CheckCircle2,
+  ArrowRight,
+  Building,
+  ShieldCheck,
+  UserCheck,
+  Bell,
+  BarChart3,
+  ArrowUpRight
 } from 'lucide-react';
 
 // Custom SVG Checkmark matching the thin outline circle checkmark in the screenshots exactly
@@ -38,17 +38,19 @@ const WreathBadgeIcon = () => (
 export const LandingPage = ({ onNavigate }) => {
   return (
     <div className="bg-brand-cream text-brand-green min-h-screen flex flex-col font-sans selection:bg-brand-gold/30 antialiased">
-      
+
       {/* 1. Header Navigation */}
       <header className="border-b border-border-low bg-brand-cream/80 backdrop-blur-md py-4 px-6 md:px-12 flex items-center justify-between sticky top-0 z-50 transition-all duration-300">
         <div className="flex items-center gap-3">
-          <img src="/favicon.svg" alt="Placera Logo" className="w-10 h-10 select-none object-contain" />
+          <div className="w-10 h-10 bg-[#022c22] text-brand-cream rounded-sm flex items-center justify-center font-bold text-lg select-none">
+            <GraduationCap className="w-6 h-6 text-brand-cream" />
+          </div>
           <div>
             <span className="font-serif text-lg font-bold tracking-tight block leading-none">Placera</span>
             <span className="text-[7.5px] uppercase tracking-widest font-black text-brand-green/60 block mt-1">Placement Portal</span>
           </div>
         </div>
-        
+
         {/* Scroll Navigation */}
         <nav className="hidden md:flex items-center gap-8 text-[11px] font-bold uppercase tracking-wider text-brand-green/75">
           <a href="#overview" className="hover:text-brand-gold transition-colors duration-250">Overview</a>
@@ -77,22 +79,22 @@ export const LandingPage = ({ onNavigate }) => {
       <main className="flex-1">
 
         {/* 2. Hero Section with Premium Radial Background Gradient and Statistics */}
-        <section 
-          id="overview" 
+        <section
+          id="overview"
           className="relative py-16 md:py-24 px-6 md:px-12 border-b border-border-low transition-all duration-300"
           style={{
             background: 'radial-gradient(circle at 10% 10%, rgba(220, 236, 216, 0.45) 0%, rgba(249, 249, 247, 0.95) 50%, rgba(246, 242, 229, 0.5) 100%)'
           }}
         >
           <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            
+
             {/* Left Column: Title and Details */}
             <div className="lg:col-span-6 space-y-8 animate-fade-in-up">
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-brand-green/10 bg-brand-green/[0.03] text-brand-green text-[10px] font-bold tracking-wide uppercase">
                 <WreathBadgeIcon />
                 <span>Built for modern placement cells</span>
               </div>
-              
+
               <h1 className="editorial-heading font-serif text-[42px] leading-[1.08] md:text-[64px] font-light text-brand-green tracking-tight">
                 Where careers <span className="italic font-serif font-normal text-brand-green">begin,</span><br />
                 and companies <span className="italic font-serif font-normal text-brand-green">find</span><br />
@@ -122,7 +124,7 @@ export const LandingPage = ({ onNavigate }) => {
             {/* Right Column: Today Snapshot Card */}
             <div className="lg:col-span-6 flex justify-center lg:justify-end animate-fade-in-up">
               <div className="bg-white border border-border-low rounded-2xl p-7 max-w-md w-full shadow-[0_15px_40px_-15px_rgba(2,44,34,0.08)] space-y-6">
-                
+
                 <div className="flex justify-between items-center border-b border-border-low pb-4">
                   <div>
                     <span className="text-[10px] text-text-secondary uppercase tracking-widest font-bold block">Today · Placement Cell</span>
@@ -135,7 +137,7 @@ export const LandingPage = ({ onNavigate }) => {
 
                 {/* Grid 2x2 */}
                 <div className="grid grid-cols-2 gap-4">
-                  
+
                   {/* Active Jobs */}
                   <div className="bg-[#fbfbf9] border border-brand-green/5 rounded-xl p-4 relative overflow-hidden flex flex-col justify-between min-h-[85px] hover:border-brand-green/20 transition-colors duration-250">
                     <Briefcase className="w-4 h-4 text-brand-green/30 absolute right-3.5 top-3.5" />
@@ -238,14 +240,14 @@ export const LandingPage = ({ onNavigate }) => {
         {/* 3. Choose How You Sign In (Roles Section with pristine white background) */}
         <section id="roles" className="py-24 px-6 md:px-12 bg-white border-b border-border-low">
           <div className="max-w-7xl mx-auto space-y-16">
-            
+
             <div className="text-left space-y-2">
               <span className="text-[10px] text-brand-gold uppercase tracking-widest font-bold block">Three doors, one portal</span>
               <h2 className="editorial-heading font-serif text-3xl md:text-5xl font-light text-brand-green">Choose how you sign in</h2>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              
+
               {/* Card 1: Student */}
               <div className="bg-[#fbfbf9] border border-brand-green/5 p-8 rounded-2xl flex flex-col justify-between hover:shadow-lg transition-all duration-300 group">
                 <div className="space-y-6">
@@ -352,7 +354,7 @@ export const LandingPage = ({ onNavigate }) => {
 
         {/* 4. Capabilities Grid Section (Unified single grid container with premium borders) */}
         <section id="features" className="py-24 px-6 md:px-12 max-w-7xl mx-auto space-y-14">
-          
+
           <div className="space-y-2 text-left animate-fade-in-up">
             <span className="text-[10px] text-brand-gold uppercase tracking-widest font-bold block">Capabilities</span>
             <h2 className="editorial-heading font-serif text-3xl md:text-5xl font-light text-brand-green">Everything a placement cell needs.</h2>
@@ -360,7 +362,7 @@ export const LandingPage = ({ onNavigate }) => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 border border-brand-green/10 rounded-2xl overflow-hidden bg-brand-green/[0.01]">
-            
+
             {/* Cell 1: Onboarding */}
             <div className="p-8 md:p-10 bg-white border-b md:border-r border-brand-green/10 flex flex-col justify-between gap-6 hover:bg-[#fbfbf9]/60 transition-colors duration-250">
               <div className="space-y-4">
@@ -399,7 +401,7 @@ export const LandingPage = ({ onNavigate }) => {
                 </p>
               </div>
             </div>
-            
+
             {/* Cell 4: Interview scheduling */}
             <div className="p-8 md:p-10 bg-white border-b md:border-b-0 md:border-r border-brand-green/10 flex flex-col justify-between gap-6 hover:bg-[#fbfbf9]/60 transition-colors duration-250">
               <div className="space-y-4">
@@ -445,7 +447,7 @@ export const LandingPage = ({ onNavigate }) => {
         {/* 5. Workflow Section (Dark background, high fidelity cards with hover states) */}
         <section id="workflow" className="bg-[#022c22] text-brand-cream py-24 px-6 md:px-12 border-b border-[#022c22]">
           <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            
+
             {/* Left Column Info */}
             <div className="lg:col-span-5 space-y-6">
               <span className="text-[10px] text-brand-gold uppercase tracking-widest font-bold block">Workflow</span>
@@ -460,7 +462,7 @@ export const LandingPage = ({ onNavigate }) => {
 
             {/* Right Column vertical timeline list */}
             <div className="lg:col-span-7 space-y-4">
-              
+
               {/* Item 01 */}
               <div className="border border-white/10 bg-white/[0.02] p-5 rounded-2xl flex items-start gap-4 hover:bg-white/[0.05] hover:border-white/20 transition-all duration-300 group">
                 <span className="font-serif text-3xl text-brand-gold font-light mt-0.5 select-none shrink-0 group-hover:scale-105 transition-transform duration-250">01</span>
@@ -541,7 +543,7 @@ export const LandingPage = ({ onNavigate }) => {
       {/* 7. Footer */}
       <footer className="py-8 px-6 md:px-12 bg-brand-cream flex flex-col sm:flex-row items-center justify-between text-xs text-text-secondary font-bold">
         <div className="flex items-center gap-2">
-          <img src="/favicon.svg" alt="Placera Logo" className="w-5.5 h-5.5 object-contain select-none" />
+          <GraduationCap className="w-4.5 h-4.5 text-[#022c22]" />
           <span>Placera · Smart Internship & Placement Portal</span>
         </div>
         <div className="mt-3 sm:mt-0 font-medium text-brand-green/60">

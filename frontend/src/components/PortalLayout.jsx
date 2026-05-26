@@ -37,7 +37,7 @@ export const PortalLayout = ({ children, activeTab, onTabChange, menuItems, sear
     const created = new Date(createdAt);
     const diffMs = now - created;
     const diffMins = Math.floor(diffMs / 60000);
-    
+
     if (diffMins < 1) return 'Just now';
     if (diffMins < 60) return `${diffMins}m ago`;
     const diffHrs = Math.floor(diffMins / 60);
@@ -48,17 +48,18 @@ export const PortalLayout = ({ children, activeTab, onTabChange, menuItems, sear
 
   return (
     <div className="min-h-screen bg-[#f9f8f3] text-brand-green flex flex-col md:flex-row font-sans selection:bg-brand-gold/30">
-      
+
       {/* Sidebar Navigation */}
-      <aside className={`w-full md:w-64 bg-brand-green text-brand-cream flex flex-col justify-between shrink-0 border-r border-border-low md:sticky md:top-0 md:h-screen z-40 transition-transform duration-300 ${
-        mobileMenuOpen ? 'fixed inset-0 translate-x-0' : 'hidden md:flex'
-      }`}>
-        
+      <aside className={`w-full md:w-64 bg-brand-green text-brand-cream flex flex-col justify-between shrink-0 border-r border-border-low md:sticky md:top-0 md:h-screen z-40 transition-transform duration-300 ${mobileMenuOpen ? 'fixed inset-0 translate-x-0' : 'hidden md:flex'
+        }`}>
+
         <div className="flex flex-col flex-1">
           {/* Logo & Header */}
           <div className="p-6 border-b border-white/5 flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <img src="/favicon.svg" alt="Placera Logo" className="w-10 h-10 object-contain" />
+              <div className="w-10 h-10 rounded-xl bg-brand-gold flex items-center justify-center shrink-0 shadow-sm">
+                <GraduationCap className="w-6 h-6 text-[#022c22] stroke-[2] fill-current" />
+              </div>
               <div className="flex flex-col">
                 <span className="editorial-heading font-serif text-xl font-bold tracking-tight text-white">Placera</span>
                 <span className="text-[9px] text-white/50 uppercase tracking-widest font-semibold -mt-0.5">
@@ -88,11 +89,10 @@ export const PortalLayout = ({ children, activeTab, onTabChange, menuItems, sear
                     onTabChange(item.id);
                     setMobileMenuOpen(false);
                   }}
-                  className={`w-full flex items-center justify-between px-4 py-3 rounded-xl text-sm font-medium transition-all text-left group ${
-                    isActive
+                  className={`w-full flex items-center justify-between px-4 py-3 rounded-xl text-sm font-medium transition-all text-left group ${isActive
                       ? 'bg-white/5 text-white font-semibold'
                       : 'text-white/60 hover:text-white hover:bg-white/5'
-                  }`}
+                    }`}
                 >
                   <div className="flex items-center gap-3.5">
                     <Icon className={`w-4.5 h-4.5 transition-colors ${isActive ? 'text-brand-gold' : 'text-white/40 group-hover:text-white'}`} />
@@ -138,7 +138,7 @@ export const PortalLayout = ({ children, activeTab, onTabChange, menuItems, sear
 
       {/* Main Panel */}
       <div className="flex-1 flex flex-col min-w-0">
-        
+
         {/* Top Navbar Header */}
         <header className="h-20 bg-[#f9f8f3]/80 backdrop-blur-md px-6 md:px-12 flex items-center justify-between sticky top-0 z-30 border-b border-brand-green/5">
           {/* Search Input Bar */}
@@ -160,7 +160,7 @@ export const PortalLayout = ({ children, activeTab, onTabChange, menuItems, sear
 
           {/* Actions & Alerts */}
           <div className="flex items-center gap-4 relative">
-            
+
             {/* Notifications Bell */}
             <div className="relative">
               <button
@@ -207,11 +207,10 @@ export const PortalLayout = ({ children, activeTab, onTabChange, menuItems, sear
                         <div
                           key={notif.id}
                           onClick={() => markNotificationAsRead(notif.id)}
-                          className={`p-3 rounded-xl border text-[11px] transition-all cursor-pointer ${
-                            notif.read
+                          className={`p-3 rounded-xl border text-[11px] transition-all cursor-pointer ${notif.read
                               ? 'bg-[#f9f9f7] border-border-low opacity-60'
                               : 'bg-brand-gold/5 border-brand-gold/20 hover:bg-brand-gold/10'
-                          }`}
+                            }`}
                         >
                           <div className="flex justify-between items-start mb-1">
                             <span className="font-semibold text-[#022c22] leading-snug pr-2">{notif.title}</span>

@@ -1,37 +1,37 @@
-# 🎓 PLACERA — Premium Placement Portal
+# PLACERA — Premium Placement Portal
 
 A unified, real-time placement management system designed to connect students, recruiters, and administrators in a single ecosystem. Built with a luxurious dark-emerald aesthetic, robust JWT-based authentication, and a real-time reactive MongoDB database.
 
 ---
 
-## 🚀 Deployed Project Link
+## Deployed Project Link
 
 * **Frontend Portal (Vercel):** [https://placera-17zu1s430-nawfalahmed204-8990s-projects.vercel.app/](https://placera-17zu1s430-nawfalahmed204-8990s-projects.vercel.app/)
 * Cold start may take 30–60 seconds (Thank you for your patience!)
 
 ---
 
-## 🌟 Core Features
+## Core Features
 
-### 👤 Student Workspace
+### Student Workspace
 * **Personalized Dashboard:** View status of recommended, active, and saved jobs.
 * **Interactive Profile:** Edit CGPA, upload resumes, and list custom skill tags.
 * **Linear Application Timeline:** Fully ordered steps (Applied, Shortlisted, Interview, Accepted/Rejected).
 * **Smart Notifications:** Real-time reminders, application updates, and interview alerts.
 
-### 🏢 Recruiter Console
+### Recruiter Console
 * **Job Posting & Management:** Write descriptions, set eligibility criteria, and manage active drives.
 * **Applicant Review System:** See student stats, download resumes, and accept/reject applicants.
 * **Interview Scheduler:** Integrated scheduler to invite candidates directly.
 
-### 👑 Admin Control Panel
+### Admin Control Panel
 * **Comprehensive Metrics:** Live placement percentages, active recruiter counts, and total enrollment statistics.
 * **Real-time Sector-Wise Analysis:** Placed students automatically tracked under **Technology & Engineering**, **Business & Operations**, and **Applied Sciences & Design**.
 * **Approvals Engine:** Authorize or decline recruiter requests in real-time.
 
 ---
 
-## 🛠️ Technology Stack
+## Technology Stack
 
 * **Frontend:** React 18, Vite, Tailwind CSS v4, Lucide Icons, Glassmorphism design system.
 * **Backend:** Node.js, Express, MongoDB Atlas (Mongoose), JWT, BcryptJS.
@@ -39,7 +39,7 @@ A unified, real-time placement management system designed to connect students, r
 
 ---
 
-## ⚙️ Local Development Setup
+## Local Development Setup
 
 ### 1. Clone & Install
 ```bash

@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import { useAuth } from '../context/AuthContext';
-import { 
-  GraduationCap, 
-  Building, 
-  ShieldCheck, 
-  ShieldAlert, 
-  CheckCircle2, 
-  ArrowRight,
-  ArrowLeft
+import {
+  GraduationCap,
+  Building,
+  ShieldCheck,
+  ShieldAlert,
+  CheckCircle2,
+  ArrowRight
 } from 'lucide-react';
 
 export const LoginPage = ({ onNavigate }) => {
@@ -26,7 +25,7 @@ export const LoginPage = ({ onNavigate }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setErrorMessage('');
-    
+
     const result = await login(email, password);
     if (result.success) {
       setIsSuccess(true);
@@ -42,9 +41,9 @@ export const LoginPage = ({ onNavigate }) => {
 
   return (
     <div className="bg-[#fbfbf9] text-brand-green min-h-screen grid grid-cols-1 lg:grid-cols-12 selection:bg-brand-gold/30 font-sans antialiased">
-      
+
       {/* Left Column: Premium Dark Green Brand Graphic with Dotted Grid Pattern */}
-      <div 
+      <div
         className="lg:col-span-5 bg-[#022c22] p-8 md:p-16 text-brand-cream flex flex-col justify-between relative overflow-hidden"
         style={{
           backgroundImage: 'radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px)',
@@ -52,10 +51,12 @@ export const LoginPage = ({ onNavigate }) => {
         }}
       >
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(179,139,63,0.1),transparent)]"></div>
-        
+
         {/* Brand Logo Header */}
         <div className="flex items-center gap-3 z-10 select-none">
-          <img src="/favicon.svg" alt="Placera Logo" className="w-11 h-11 object-contain" />
+          <div className="w-11 h-11 bg-brand-gold text-[#022c22] rounded-lg flex items-center justify-center shadow-xs">
+            <GraduationCap className="w-6 h-6 text-[#022c22]" />
+          </div>
           <div>
             <span className="font-serif text-lg font-bold text-white block leading-none">Placera</span>
             <span className="text-[7.5px] uppercase tracking-widest font-black text-brand-cream/60 block mt-1">Placement Portal</span>
@@ -85,14 +86,13 @@ export const LoginPage = ({ onNavigate }) => {
       {/* Right Column: Clean Login Form */}
       <div className="lg:col-span-7 p-8 md:p-16 flex flex-col justify-center bg-[#fbfbf9] transition-all duration-300">
         <div className="max-w-md mx-auto w-full space-y-8">
-          
+
           {/* Back Button */}
           <button
             onClick={() => onNavigate('landing')}
-            className="group flex items-center gap-2 self-start px-3.5 py-1.5 border border-brand-green/10 rounded-full text-[9px] uppercase tracking-widest font-extrabold text-brand-green/60 hover:text-brand-green hover:border-brand-green/30 hover:bg-brand-green/5 transition-all duration-300 cursor-pointer select-none"
+            className="flex items-center gap-1.5 text-[9px] uppercase tracking-widest font-bold text-brand-green/60 hover:text-brand-green transition-colors duration-250 cursor-pointer select-none"
           >
-            <ArrowLeft className="w-3.5 h-3.5 transition-transform duration-300 group-hover:-translate-x-0.5" />
-            <span>Back to Home</span>
+            <span>←</span> BACK TO HOME
           </button>
 
           {/* Heading */}
@@ -103,7 +103,7 @@ export const LoginPage = ({ onNavigate }) => {
 
           {/* Dynamic Form Card */}
           <form onSubmit={handleSubmit} className="space-y-6">
-            
+
             {/* Role Segmented Switcher / Tabs */}
             <div className="bg-[#f4f3ea] p-1.5 border border-brand-green/5 rounded-xl flex w-full">
               {['student', 'recruiter', 'admin'].map((role) => (
@@ -111,11 +111,10 @@ export const LoginPage = ({ onNavigate }) => {
                   type="button"
                   key={role}
                   onClick={() => handleTabChange(role)}
-                  className={`flex-1 flex flex-col items-center gap-1.5 py-3 rounded-lg text-xs transition-all duration-300 cursor-pointer ${
-                    activeTab === role
+                  className={`flex-1 flex flex-col items-center gap-1.5 py-3 rounded-lg text-xs transition-all duration-300 cursor-pointer ${activeTab === role
                       ? 'bg-white text-[#022c22] shadow-sm font-bold'
                       : 'text-[#022c22]/60 hover:text-[#022c22] font-semibold'
-                  }`}
+                    }`}
                 >
                   {role === 'student' && <GraduationCap className="w-4 h-4 shrink-0" />}
                   {role === 'recruiter' && <Building className="w-4 h-4 shrink-0" />}
@@ -189,7 +188,7 @@ export const LoginPage = ({ onNavigate }) => {
           {/* Under Form Footer */}
           <div className="text-center">
             <span className="text-xs text-brand-green/60 font-medium">New here? </span>
-            <button 
+            <button
               type="button"
               onClick={() => onNavigate('register')}
               className="text-xs font-bold text-brand-green hover:underline cursor-pointer"

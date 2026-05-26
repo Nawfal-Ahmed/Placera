@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { useAuth } from '../context/AuthContext';
-import { 
-  GraduationCap, 
-  Building, 
-  ShieldCheck, 
-  ShieldAlert, 
-  CheckCircle2, 
+import {
+  GraduationCap,
+  Building,
+  ShieldCheck,
+  ShieldAlert,
+  CheckCircle2,
   ArrowRight,
   User,
   Mail,
@@ -15,22 +15,22 @@ import {
 export const RegisterPage = ({ onNavigate }) => {
   const { register } = useAuth();
   const [activeTab, setActiveTab] = useState('student');
-  
+
   // General Fields
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
-  
+
   // Student Specific Fields
   const [cgpa, setCgpa] = useState('');
   const [department, setDepartment] = useState('');
   const [batch, setBatch] = useState('');
-  
+
   // Recruiter Specific Fields
   const [company, setCompany] = useState('');
   const [recruiterDesignation, setRecruiterDesignation] = useState('');
-  
+
   // Admin Specific Fields
   const [adminDesignation, setAdminDesignation] = useState('');
 
@@ -40,12 +40,12 @@ export const RegisterPage = ({ onNavigate }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setErrorMessage('');
-    
+
     if (password !== confirmPassword) {
       setErrorMessage('Passwords do not match.');
       return;
     }
-    
+
     if (password.length < 6) {
       setErrorMessage('Password must be at least 6 characters.');
       return;
@@ -88,7 +88,7 @@ export const RegisterPage = ({ onNavigate }) => {
     }
 
     const result = await register(userData);
-    
+
     if (result.success) {
       setIsSuccess(true);
       setTimeout(() => {
@@ -102,9 +102,9 @@ export const RegisterPage = ({ onNavigate }) => {
 
   return (
     <div className="bg-[#fbfbf9] text-brand-green min-h-screen grid grid-cols-1 lg:grid-cols-12 selection:bg-brand-gold/30 font-sans antialiased">
-      
+
       {/* Left Column: Premium Dark Green Brand Graphic */}
-      <div 
+      <div
         className="lg:col-span-5 bg-[#022c22] p-8 md:p-16 text-brand-cream flex flex-col justify-between relative overflow-hidden"
         style={{
           backgroundImage: 'radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px)',
@@ -112,10 +112,12 @@ export const RegisterPage = ({ onNavigate }) => {
         }}
       >
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(179,139,63,0.1),transparent)]"></div>
-        
+
         {/* Brand Logo Header */}
         <div className="flex items-center gap-3 z-10 select-none">
-          <img src="/favicon.svg" alt="Placera Logo" className="w-11 h-11 object-contain" />
+          <div className="w-11 h-11 bg-brand-gold text-[#022c22] rounded-lg flex items-center justify-center shadow-xs">
+            <GraduationCap className="w-6 h-6 text-[#022c22]" />
+          </div>
           <div>
             <span className="font-serif text-lg font-bold text-white block leading-none">Placera</span>
             <span className="text-[7.5px] uppercase tracking-widest font-black text-brand-cream/60 block mt-1">Placement Portal</span>
@@ -142,7 +144,7 @@ export const RegisterPage = ({ onNavigate }) => {
       {/* Right Column: Registration Form */}
       <div className="lg:col-span-7 p-8 md:p-12 flex flex-col justify-center bg-[#fbfbf9] overflow-y-auto">
         <div className="max-w-lg mx-auto w-full space-y-6 py-6">
-          
+
           {/* Back Button */}
           <button
             onClick={() => onNavigate('login')}
@@ -158,7 +160,7 @@ export const RegisterPage = ({ onNavigate }) => {
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-4">
-            
+
             {/* Role Switcher */}
             <div className="bg-[#f4f3ea] p-1.5 border border-brand-green/5 rounded-xl flex w-full">
               {['student', 'recruiter'].map((role) => (
@@ -169,11 +171,10 @@ export const RegisterPage = ({ onNavigate }) => {
                     setActiveTab(role);
                     setErrorMessage('');
                   }}
-                  className={`flex-1 flex flex-col items-center gap-1 py-2.5 rounded-lg text-xs transition-all duration-300 cursor-pointer ${
-                    activeTab === role
+                  className={`flex-1 flex flex-col items-center gap-1 py-2.5 rounded-lg text-xs transition-all duration-300 cursor-pointer ${activeTab === role
                       ? 'bg-white text-[#022c22] shadow-sm font-bold'
                       : 'text-[#022c22]/60 hover:text-[#022c22] font-semibold'
-                  }`}
+                    }`}
                 >
                   {role === 'student' && <GraduationCap className="w-3.5 h-3.5 shrink-0" />}
                   {role === 'recruiter' && <Building className="w-3.5 h-3.5 shrink-0" />}
@@ -387,7 +388,7 @@ export const RegisterPage = ({ onNavigate }) => {
           {/* Under Form Footer */}
           <div className="text-center">
             <span className="text-xs text-brand-green/60 font-medium">Already have an account? </span>
-            <button 
+            <button
               type="button"
               onClick={() => onNavigate('login')}
               className="text-xs font-bold text-brand-green hover:underline cursor-pointer"
