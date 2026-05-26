@@ -7,6 +7,7 @@ A unified, real-time placement management system designed to connect students, r
 ## 🚀 Deployed Project Link
 
 * **Frontend Portal (Vercel):** [https://placera-17zu1s430-nawfalahmed204-8990s-projects.vercel.app/](https://placera-17zu1s430-nawfalahmed204-8990s-projects.vercel.app/)
+* Cold start may take 30–60 seconds (Thank you for your patience!)
 
 ---
 
