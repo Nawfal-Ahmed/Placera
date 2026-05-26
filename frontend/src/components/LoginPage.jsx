@@ -6,7 +6,8 @@ import {
   ShieldCheck, 
   ShieldAlert, 
   CheckCircle2, 
-  ArrowRight 
+  ArrowRight,
+  ArrowLeft
 } from 'lucide-react';
 
 export const LoginPage = ({ onNavigate }) => {
@@ -90,9 +91,10 @@ export const LoginPage = ({ onNavigate }) => {
           {/* Back Button */}
           <button
             onClick={() => onNavigate('landing')}
-            className="flex items-center gap-1.5 text-[9px] uppercase tracking-widest font-bold text-brand-green/60 hover:text-brand-green transition-colors duration-250 cursor-pointer select-none"
+            className="group flex items-center gap-2 self-start px-3.5 py-1.5 border border-brand-green/10 rounded-full text-[9px] uppercase tracking-widest font-extrabold text-brand-green/60 hover:text-brand-green hover:border-brand-green/30 hover:bg-brand-green/5 transition-all duration-300 cursor-pointer select-none"
           >
-            <span>←</span> BACK TO HOME
+            <ArrowLeft className="w-3.5 h-3.5 transition-transform duration-300 group-hover:-translate-x-0.5" />
+            <span>Back to Home</span>
           </button>
 
           {/* Heading */}
