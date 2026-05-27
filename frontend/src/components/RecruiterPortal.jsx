@@ -312,7 +312,7 @@ export const RecruiterPortal = ({ activeSubTab, onTabChange }) => {
 
   const companyName = user?.recruiterDetails?.company || 'Helix Analytics';
   const todayStr = new Date().toISOString().split('T')[0];
-  const myRecruiter = recruiters.find(r => r.email.toLowerCase() === user.email.toLowerCase());
+  const myRecruiter = user?.email && recruiters ? recruiters.find(r => r.email.toLowerCase() === user.email.toLowerCase()) : null;
   const companyViewsVal = myRecruiter?.recruiterDetails?.companyViews || 0;
 
   // Dynamic jobs belonging to this company from MongoDB
