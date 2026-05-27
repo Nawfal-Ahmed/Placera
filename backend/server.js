@@ -42,13 +42,13 @@ app.get('/', (req, res) => {
 // Automatic Atlas Database Seeding
 const seedDatabase = async () => {
   try {
-    const adminExists = await User.findOne({ email: 'admin@placera.edu' });
+    const salt = await bcrypt.genSalt(10);
+    const defaultPassword = await bcrypt.hash('password123', salt);
 
+    // 1. Seed Admin
+    const adminExists = await User.findOne({ email: 'admin@placera.edu' });
     if (!adminExists) {
       console.log('Seeding default admin user to MongoDB Atlas...');
-      const salt = await bcrypt.genSalt(10);
-      const defaultPassword = await bcrypt.hash('password123', salt);
-
       await User.create({
         name: 'Dr. R. Nair',
         email: 'admin@placera.edu',
@@ -56,14 +56,68 @@ const seedDatabase = async () => {
         role: 'admin',
         adminDetails: {
           designation: 'Placement Officer',
-          totalStudentsCount: 0,
-          totalRecruitersCount: 0,
+          totalStudentsCount: 1,
+          totalRecruitersCount: 1,
           placementPercentage: 0
         }
       });
       console.log('Default admin user successfully seeded.');
     } else {
       console.log('Admin user already exists. Seeding skipped.');
+    }
+
+    // 2. Seed Student
+    const studentExists = await User.findOne({ email: 'student@placera.edu' });
+    if (!studentExists) {
+      console.log('Seeding default student user to MongoDB Atlas...');
+      await User.create({
+        name: 'Nawfal Ahmed',
+        email: 'student@placera.edu',
+        password: defaultPassword,
+        role: 'student',
+        studentDetails: {
+          roll: '24BCS0012',
+          cgpa: '9.2',
+          department: 'Computer Science & Engineering',
+          batch: '2026',
+          skills: ['Python', 'TensorFlow', 'React', 'MongoDB'],
+          appliedJobsCount: 0,
+          interviewsCount: 0
+        }
+      });
+      console.log('Default student user successfully seeded.');
+    } else {
+      console.log('Student user already exists. Seeding skipped.');
+    }
+
+    // 3. Seed Recruiter
+    const recruiterExists = await User.findOne({ email: 'talent@helixanalytics.com' });
+    if (!recruiterExists) {
+      console.log('Seeding default recruiter user to MongoDB Atlas...');
+      await User.create({
+        name: 'Hr. Sarah Jenkins',
+        email: 'talent@helixanalytics.com',
+        password: defaultPassword,
+        role: 'recruiter',
+        recruiterDetails: {
+          company: 'Helix Analytics',
+          designation: 'Talent Acquisition Lead',
+          activeJobsCount: 0,
+          totalApplicantsCount: 0,
+          companyViews: 0,
+          tagline: 'Leading data science and analytics platform',
+          about: 'Helix Analytics is a premium research and software engineering enterprise specializing in predictive modeling and business intelligence.',
+          location: 'Bangalore, India',
+          website: 'https://helixanalytics.com',
+          techStack: ['Node.js', 'React', 'Python', 'AWS'],
+          contactEmail: 'talent@helixanalytics.com',
+          companySize: '150 - 500',
+          industry: 'Technology & Data Science'
+        }
+      });
+      console.log('Default recruiter user successfully seeded.');
+    } else {
+      console.log('Recruiter user already exists. Seeding skipped.');
     }
 
     const eligibilityCount = await Eligibility.countDocuments();
@@ -80,7 +134,7 @@ const seedDatabase = async () => {
       console.log('Default eligibility rules successfully seeded.');
     }
   } catch (error) {
-    console.error('Error seeding admin database:', error.message);
+    console.error('Error seeding database:', error.message);
   }
 };
 

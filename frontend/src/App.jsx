@@ -45,7 +45,6 @@ function InnerApp() {
   const [studentTab, setStudentTab] = useState('overview');
   const [recruiterTab, setRecruiterTab] = useState('overview');
   const [adminTab, setAdminTab] = useState('overview');
-  const [adminSearch, setAdminSearch] = useState('');
 
   // Handle reloads and check active local storage session
   useEffect(() => {
@@ -74,40 +73,34 @@ function InnerApp() {
   switch (view) {
     case 'landing':
       return <LandingPage onNavigate={handleNavigate} />;
-    
+
     case 'login':
       return <LoginPage onNavigate={handleNavigate} />;
-    
+
     case 'register':
       return <RegisterPage onNavigate={handleNavigate} />;
-    
+
     case 'student-dashboard':
       return (
         <PortalLayout activeTab={studentTab} onTabChange={setStudentTab} menuItems={StudentMenuItems}>
           <StudentPortal activeSubTab={studentTab} onTabChange={setStudentTab} />
         </PortalLayout>
       );
-    
+
     case 'recruiter-dashboard':
       return (
         <PortalLayout activeTab={recruiterTab} onTabChange={setRecruiterTab} menuItems={RecruiterMenuItems}>
           <RecruiterPortal activeSubTab={recruiterTab} onTabChange={setRecruiterTab} />
         </PortalLayout>
       );
-    
+
     case 'admin-dashboard':
       return (
-        <PortalLayout 
-          activeTab={adminTab} 
-          onTabChange={setAdminTab} 
-          menuItems={AdminMenuItems}
-          searchValue={adminSearch}
-          onSearchChange={setAdminSearch}
-        >
-          <AdminPortal activeSubTab={adminTab} onTabChange={setAdminTab} adminSearch={adminSearch} />
+        <PortalLayout activeTab={adminTab} onTabChange={setAdminTab} menuItems={AdminMenuItems}>
+          <AdminPortal activeSubTab={adminTab} onTabChange={setAdminTab} />
         </PortalLayout>
       );
-    
+
     default:
       return <LandingPage onNavigate={handleNavigate} />;
   }

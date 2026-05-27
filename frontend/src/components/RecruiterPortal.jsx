@@ -433,6 +433,7 @@ export const RecruiterPortal = ({ activeSubTab, onTabChange }) => {
   const funnelInterview = allApplicants.filter(a => ['Interview', 'Offer', 'Selected'].includes(a.status)).length;
   const funnelOffer = allApplicants.filter(a => a.status === 'Selected').length;
 
+  const pctApplied = students && students.length > 0 ? Math.min(100, Math.round((funnelApplied / students.length) * 100)) : 0;
   const pctShortlisted = funnelApplied > 0 ? Math.round((funnelShortlisted / funnelApplied) * 100) : 0;
   const pctInterview = funnelApplied > 0 ? Math.round((funnelInterview / funnelApplied) * 100) : 0;
   const pctOffer = funnelApplied > 0 ? Math.round((funnelOffer / funnelApplied) * 100) : 0;
@@ -1053,10 +1054,10 @@ export const RecruiterPortal = ({ activeSubTab, onTabChange }) => {
                 <div>
                   <div className="flex justify-between items-center text-xs font-semibold text-brand-green">
                     <span className="flex items-center gap-1.5"><TrendingUp className="w-3.5 h-3.5 text-brand-green/40" /> Applied</span>
-                    <span className="font-bold">{funnelApplied} · 100%</span>
+                    <span className="font-bold">{funnelApplied} · {pctApplied}%</span>
                   </div>
                   <div className="w-full bg-brand-cream/80 border border-brand-green/5 h-2.5 rounded-full mt-2 overflow-hidden shadow-inner">
-                    <div className="bg-[#022c22] rounded-full h-full w-full"></div>
+                    <div className="bg-[#022c22] rounded-full h-full" style={{ width: `${pctApplied}%` }}></div>
                   </div>
                 </div>
 
